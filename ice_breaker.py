@@ -8,7 +8,7 @@ from third_parties.linkedin import scrape_linkedin_profile
 if __name__ == "__main__":
     load_dotenv()
 
-    print("Hello LangChain!")
+    print("Hello LangChain")
 
     summary_template = """
     given the Linkedin information {information} about a person I want you to create:
