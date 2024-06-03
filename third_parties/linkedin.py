@@ -10,7 +10,7 @@ def scrape_linkedin_profile(linkedin_profile_url: str, mock: bool = False):
     Manually scrape the information from the LinkedIn profile"""
 
     if mock:
-        linkedin_profile_url = "https://gist.githubusercontent.com/emarco177/0d6a3f93dd06634d95e46a2782ed7490/raw/78233eb934aa9850b689471a604465b188e761a0/eden-marco.json"
+        linkedin_profile_url = "https://gist.githubusercontent.com/jchen0824/9d29b5f4ab658429646e8ce9f6ead1ab/raw/de6192042bb4a2560c48dbc1e041a5b9c36d423b/houren-chen.json"
         response = requests.get(
             linkedin_profile_url,
             timeout=10,
@@ -20,7 +20,7 @@ def scrape_linkedin_profile(linkedin_profile_url: str, mock: bool = False):
         header_dic = {"Authorization": f'Bearer {os.environ.get("PROXYCURL_API_KEY")}'}
         response = requests.get(
             api_endpoint,
-            params={"url": linkedin_profile_url},
+            params={"linkedin_profile_url": linkedin_profile_url},
             headers=header_dic,
             timeout=10,
         )
@@ -42,6 +42,7 @@ def scrape_linkedin_profile(linkedin_profile_url: str, mock: bool = False):
 if __name__ == "__main__":
     print(
         scrape_linkedin_profile(
-            linkedin_profile_url="https://www.linkedin.com/in/eden-marco/",
+            linkedin_profile_url="https://www.linkedin.com/in/hourenchen/",
+            mock=True,
         )
     )
